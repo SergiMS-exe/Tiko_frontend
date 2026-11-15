@@ -6,7 +6,6 @@ type BackendStatus = 'checking' | 'up' | 'down';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrl: './app.scss',
 })
 export class App implements OnInit {
   private readonly http = inject(HttpClient);

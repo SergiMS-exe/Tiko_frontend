@@ -1,33 +1,46 @@
-<main class="shell">
-  <header>
-    <p class="eyebrow">Proyecto</p>
-    <h1>{{ title() }}</h1>
-    <p class="lead">Angular 21 LTS + Spring Boot 4.1 + Java 21</p>
-  </header>
+<main class="min-h-dvh bg-[#0b1020] text-slate-100">
+  <div class="mx-auto flex min-h-dvh max-w-3xl flex-col justify-center px-6 py-16">
+    <header>
+      <p class="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-indigo-300">
+        Proyecto
+      </p>
+      <h1 class="text-6xl font-black tracking-tighter sm:text-8xl">
+        {{ title() }}
+      </h1>
+      <p class="mt-4 text-lg text-slate-400">
+        Angular 21 LTS + Spring Boot 4.1 + Java 21
+      </p>
+    </header>
 
-  <section
-    class="status"
-    [class.up]="backend() === 'up'"
-    [class.down]="backend() === 'down'"
-  >
-    <span class="dot"></span>
-    <span>
-      @switch (backend()) {
-        @case ('checking') {
-          Comprobando backend…
+    <section
+      class="mt-10 inline-flex w-fit items-center gap-2.5 rounded-full border border-slate-700/60 bg-slate-900/70 px-4 py-2.5 text-sm text-slate-400"
+    >
+      <span
+        class="h-2.5 w-2.5 rounded-full shadow-[0_0_0_4px_rgba(148,163,184,0.12)]"
+        [class.bg-amber-400]="backend() === 'checking'"
+        [class.bg-emerald-400]="backend() === 'up'"
+        [class.bg-red-400]="backend() === 'down'"
+      ></span>
+      <span>
+        @switch (backend()) {
+          @case ('checking') {
+            Comprobando backend…
+          }
+          @case ('up') {
+            Backend conectado
+          }
+          @default {
+            Backend no disponible
+          }
         }
-        @case ('up') {
-          Backend conectado
-        }
-        @default {
-          Backend no disponible
-        }
-      }
-    </span>
-  </section>
+      </span>
+    </section>
 
-  <p class="hint">
-    Frontend: <code>http://localhost:4200</code> · Backend:
-    <code>http://localhost:8080</code>
-  </p>
+    <p class="mt-8 text-sm text-slate-500">
+      Frontend:
+      <code class="rounded bg-slate-900 px-1.5 py-0.5 text-xs text-slate-300">http://localhost:4200</code>
+      · Backend:
+      <code class="rounded bg-slate-900 px-1.5 py-0.5 text-xs text-slate-300">http://localhost:8080</code>
+    </p>
+  </div>
 </main>
