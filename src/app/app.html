@@ -1,0 +1,33 @@
+<main class="shell">
+  <header>
+    <p class="eyebrow">Proyecto</p>
+    <h1>{{ title() }}</h1>
+    <p class="lead">Angular 21 LTS + Spring Boot 4.1 + Java 21</p>
+  </header>
+
+  <section
+    class="status"
+    [class.up]="backend() === 'up'"
+    [class.down]="backend() === 'down'"
+  >
+    <span class="dot"></span>
+    <span>
+      @switch (backend()) {
+        @case ('checking') {
+          Comprobando backend…
+        }
+        @case ('up') {
+          Backend conectado
+        }
+        @default {
+          Backend no disponible
+        }
+      }
+    </span>
+  </section>
+
+  <p class="hint">
+    Frontend: <code>http://localhost:4200</code> · Backend:
+    <code>http://localhost:8080</code>
+  </p>
+</main>
